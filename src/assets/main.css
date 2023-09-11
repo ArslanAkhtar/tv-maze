@@ -25,5 +25,8 @@
 }
 
 .show-detail {
-  margin: 10px 0px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 10px 0;
 }
