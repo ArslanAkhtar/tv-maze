@@ -1,37 +1,37 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import { fa } from 'vuetify/iconsets/fa'
-import { mdi, aliases } from 'vuetify/iconsets/mdi'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import "vuetify/styles";
+import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+import { fa } from "vuetify/iconsets/fa";
+import { mdi, aliases } from "vuetify/iconsets/mdi";
 
-import '@mdi/font/css/materialdesignicons.css'
+import "@mdi/font/css/materialdesignicons.css";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(router);
 
 const vuetify = createVuetify({
-  components,
-  directives,
-  theme: {
-    defaultTheme: 'dark'
-  },
-  icons: {
-    defaultSet: 'mdi',
-    aliases,
-    sets: {
-      mdi,
-      fa
-    }
-  }
-})
+	components,
+	directives,
+	theme: {
+		defaultTheme: "dark",
+	},
+	icons: {
+		defaultSet: "mdi",
+		aliases,
+		sets: {
+			mdi,
+			fa,
+		},
+	},
+});
 
-app.use(vuetify)
+app.use(vuetify);
 
-app.mount('#app')
+app.mount("#app");

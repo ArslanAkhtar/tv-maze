@@ -10,7 +10,7 @@
   "compilerOptions": {
     "composite": true,
     "module": "Node16",
-    "moduleResolution":"node",
+    "moduleResolution":"Node16",
     "types": ["node"]
   }
 }

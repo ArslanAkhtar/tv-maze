@@ -1,1 +1,1 @@
-export const baseURL ='https://api.tvmaze.com'
+export const baseURL = "https://api.tvmaze.com";
