@@ -1,11 +1,14 @@
 import { describe, it, expect } from "vitest";
-import { mount, shallowMount } from "@vue/test-utils";
+import { VueWrapper, mount, shallowMount } from "@vue/test-utils";
 import Card from "../Card.vue";
 import { vuetify } from "@/main";
 import * as components from "vuetify/components";
 import mockShow from "./mockData/mockShow.json";
 import { router } from "@/router";
 
+interface OpenDetails extends VueWrapper {
+	openDetails(id: number | undefined): void;
+}
 describe("Card Component", () => {
 	it("renders props", () => {
 		const wrapper = mount(Card, { props: { item: mockShow } });
@@ -45,7 +48,8 @@ describe("Card Component", () => {
 			},
 		});
 		const id = 1;
-		await wrapper.vm.openDetails(id);
+		const res = wrapper.vm as unknown as OpenDetails;
+		await res.openDetails(id);
 		expect(router.currentRoute.value.name).toBe("show");
 		expect(router.currentRoute.value.params).toEqual({ id: "1" });
 	});
@@ -56,7 +60,7 @@ describe("Card Component", () => {
 			},
 		});
 		const id = undefined;
-		const res = await wrapper.vm.openDetails(id);
-		expect(res).toEqual(null);
+		const res = wrapper.vm as unknown as OpenDetails;
+		expect(res.openDetails(id)).toEqual(null);
 	});
 });
