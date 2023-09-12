@@ -21,7 +21,8 @@
 		<v-img
 			@click="() => openDetails(item?.id)"
 			class="align-end text-white"
-			:src="item?.image?.medium"
+			:src="item?.image?.original"
+			lazy-src="https://via.placeholder.com/300x400?text=Loading..."
 			cover
 		/>
 		<div class="rating" v-if="item?.rating.average">

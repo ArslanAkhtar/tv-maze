@@ -3,9 +3,9 @@
 	import useFilteredShows from "../composables/Filters";
 	import { onMounted, onUnmounted } from "vue";
 	import Filters from "@/components/Filters.vue";
-	import { useIntersectionObserver } from "@vueuse/core";
-	import { ref } from "vue";
 	import Loader from "@/components/Loader.vue";
+	import LoadMore from "@/components/LoadMore.vue";
+	import useInfiniteScroll from "@/composables/InfiniteScroll";
 	const {
 		fetchedShows,
 		shows,
@@ -15,15 +15,14 @@
 		selectedGenres,
 	} = useFilteredShows();
 
-	const paginationCount = ref(0);
-	const showCount = 16;
-	const target = ref(null);
-	const { stop } = useIntersectionObserver(target, () => {
-		paginationCount.value = paginationCount.value + 1;
-	});
+	const { target, displayCount, stop } = useInfiniteScroll();
 
 	onMounted(async () => {
-		await fetchedShows();
+		try {
+			await fetchedShows();
+		} catch (error) {
+			console.error("Error fetching shows:", error);
+		}
 	});
 
 	onUnmounted(() => {
@@ -55,7 +54,7 @@
 		<v-row>
 			<v-col
 				v-if="shows && shows.length > 0"
-				v-for="show in shows.slice(0, paginationCount * showCount)"
+				v-for="show in shows.slice(0, displayCount)"
 				:key="show?.id"
 				cols="12"
 				sm="6"
@@ -73,7 +72,8 @@
 			title="No Shows Found."
 		></v-alert>
 	</v-container>
-	<div ref="target" v-if="shows && shows.length > 0"></div>
+	<LoadMore
+		ref="target"
+		v-if="shows && shows.length > 0 && displayCount < shows.length"
+	/>
 </template>
-
-<style scoped></style>
