@@ -16,7 +16,7 @@ const app = createApp(App);
 
 app.use(router);
 
-const vuetify = createVuetify({
+export const vuetify = createVuetify({
 	components,
 	directives,
 	theme: {

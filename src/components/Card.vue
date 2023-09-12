@@ -7,7 +7,9 @@
 
 	const year = props.item?.premiered?.split("-")[0] || "";
 	const openDetails = (id: number | undefined) => {
-		router.push({
+		if (!id) return null;
+
+		return router.push({
 			name: "show",
 			params: { id },
 		});
