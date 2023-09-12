@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import { router } from "@/router";
 	import type { Show } from "@/helpers/types";
+	import { defaultImage, loadingImagePlaceholder } from "@/helpers/constants";
 	const props = defineProps<{
 		item?: Show;
 	}>();
@@ -21,8 +22,8 @@
 		<v-img
 			@click="() => openDetails(item?.id)"
 			class="align-end text-white"
-			:src="item?.image?.original"
-			lazy-src="https://via.placeholder.com/300x400?text=Loading..."
+			:src="item?.image?.original || defaultImage"
+			:lazy-src="loadingImagePlaceholder"
 			cover
 		/>
 		<div class="rating" v-if="item?.rating.average">
@@ -61,9 +62,6 @@
 			height: unset !important;
 		}
 	}
-	/* .movie-card :hover {
-  transform: scale(0.5);
-} */
 	.movie-card .rating {
 		position: absolute;
 		border-radius: 8px;

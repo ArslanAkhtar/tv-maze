@@ -1,4 +1,4 @@
-import { baseURL } from "../helpers/constant";
+import { baseURL } from "../helpers/constants";
 import { useFetch } from "@vueuse/core";
 
 export default function useFetchShows() {

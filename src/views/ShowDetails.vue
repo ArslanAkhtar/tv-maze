@@ -4,6 +4,7 @@
 	import { useRoute } from "vue-router";
 	import { computed } from "vue";
 	import Loader from "@/components/Loader.vue";
+	import DOMPurify from "dompurify";
 
 	const { showDetails } = useFetchShows();
 
@@ -26,7 +27,10 @@
 				</v-col>
 				<v-col cols="12" md="8">
 					<div class="text-h4 font-weight-bold">{{ show.name }}</div>
-					<div class="text-p" v-html="show?.summary"></div>
+					<div
+						class="text-p"
+						v-html="DOMPurify.sanitize(show.summary || '')"
+					></div>
 					<div class="show-detail">
 						<div class="text-h6 font-weight-bold">Genre:</div>
 						<div class="text-p">
@@ -40,21 +44,21 @@
 							</v-chip>
 						</div>
 					</div>
-					<div class="show-detail">
+					<div class="show-detail" v-if="show.rating.average">
 						<div class="text-h6 font-weight-bold">Rating:</div>
 						<div class="text-p font-weight-bold">
 							{{ show?.rating?.average }}
 						</div>
 					</div>
-					<div class="show-detail">
+					<div class="show-detail" v-if="show.language">
 						<div class="text-h6 font-weight-bold">Language:</div>
 						<div class="text-p font-weight-bold">{{ show?.language }}</div>
 					</div>
-					<div class="show-detail">
+					<div class="show-detail" v-if="show.premiered">
 						<div class="text-h6 font-weight-bold">Premiered:</div>
 						<div class="text-p font-weight-bold">{{ show?.premiered }}</div>
 					</div>
-					<div class="show-detail">
+					<div class="show-detail" v-if="show.status">
 						<div class="text-h6 font-weight-bold">Status:</div>
 						<div class="text-p font-weight-bold">{{ show?.status }}</div>
 					</div>
@@ -69,7 +73,7 @@
 <style scoped>
 	.wrapper {
 		background-image: v-bind(backgroundImageStyle);
-		background-size: contain;
+		background-size: initial;
 		min-height: 100vh;
 		background-position: top right;
 	}

@@ -14,7 +14,7 @@ const useFilteredShows = () => {
 	let allShowsOnInitialLoad: Show[] = [];
 	let timerId: ReturnType<typeof setTimeout> | null = null;
 
-	watch([query, selectedGenres, selectedRating], (val) => {
+	watch([query, selectedGenres, selectedRating], () => {
 		fetchedShows();
 	});
 
