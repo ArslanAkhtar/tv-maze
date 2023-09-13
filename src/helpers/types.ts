@@ -72,10 +72,9 @@ import { VueWrapper } from "@vue/test-utils";
 export interface OpenDetails extends VueWrapper {}
 
 export interface ExtVueWrapper extends VueWrapper {
-	loadShowSeasons(id: number): any;
+	loadShowSeasons(id: number): Season[] | undefined;
 	isFinished?: boolean;
 	getYear(premiered: string): string;
 	imgURL(inputURL: string | undefined): string;
 	openURL(url: string): void;
-	openDetails(id?: number | undefined, url?: string | undefined): void;
 }

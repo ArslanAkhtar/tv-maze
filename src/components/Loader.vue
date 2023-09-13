@@ -1,6 +1,3 @@
-<script setup lang="ts">
-	// import { FulfillingBouncingCircleSpinner } from 'epic-spinners'
-</script>
 <template>
 	<div class="loading">
 		<v-progress-circular

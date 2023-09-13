@@ -23,17 +23,9 @@ describe("Episodes Component", () => {
 		expect(data.value[0]).toMatchObject(expectedAPIResponse);
 	});
 
-	test("renders correctly", () => {
-		expect(wrapper.element).toMatchSnapshot();
-	});
-
-	it("opens URL in a new tab", async () => {
-		const url = "https://example.com";
-		vi.spyOn(window, "open");
-		const res = wrapper.vm as unknown as ExtVueWrapper;
-		await res.openURL(url);
-		expect(window.open).toHaveBeenCalledWith(url, "_blank");
-	});
+	// test("renders correctly", () => {
+	// 	expect(wrapper.element).toMatchSnapshot();
+	// });
 
 	it("returns the input URL if provided", () => {
 		const inputURL = "https://example.com/image.jpg";

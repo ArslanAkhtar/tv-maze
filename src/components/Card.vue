@@ -1,27 +1,25 @@
 <script setup lang="ts">
-	import { router } from "@/router";
 	import type { Show } from "@/helpers/types";
 	import { loadingImagePlaceholder } from "@/helpers/constants";
-	import { imgURL, getYear, formateTitle } from "@/helpers/utility";
+	import {
+		imgURL,
+		getYear,
+		formateTitle,
+		navigateToRoute,
+	} from "@/helpers/utility";
+	import { RouteNavigation } from "@/helpers/enum";
 
 	defineProps<{
 		item?: Show;
 	}>();
-
-	const openDetails = (id: number | undefined) => {
-		if (!id) return null;
-
-		return router.push({
-			name: "show",
-			params: { id },
-		});
-	};
 </script>
 
 <template>
 	<v-card class="mx-auto rounded-lg movie-card">
 		<v-img
-			@click="() => openDetails(item?.id)"
+			@click="
+				() => navigateToRoute(RouteNavigation.ShowDetails, { id: item?.id })
+			"
 			class="align-end text-white"
 			:src="imgURL(item?.image?.original)"
 			:lazy-src="loadingImagePlaceholder"

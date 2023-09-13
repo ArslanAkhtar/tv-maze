@@ -1,5 +1,6 @@
 import { defaultImage } from "./constants";
 import type { Show } from "./types";
+import { router } from "@/router";
 
 export function filterShows(
 	genres: string[],
@@ -28,3 +29,10 @@ export const formateTitle = (
 	title: string | undefined,
 	year: string | undefined
 ) => `${title} (${year})`;
+
+export const openExternalURL = (url: string) => window.open(url, "_blank");
+
+export const navigateToRoute = (routeName: string, params = {}) => {
+	const route = { name: routeName, params };
+	return router.push(route);
+};

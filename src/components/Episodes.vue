@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import useFetchShows from "@/composables/FetchData";
 	import Loader from "@/components/Loader.vue";
-	import { imgURL } from "@/helpers/utility";
+	import { imgURL, openExternalURL } from "@/helpers/utility";
 
 	const props = defineProps({
 		id: {
@@ -11,12 +11,7 @@
 	});
 
 	const { loadShowEpisodes } = useFetchShows();
-
 	const { data: episodes } = loadShowEpisodes(props.id);
-
-	const openURL = (url: string) => {
-		window.open(url, "_blank");
-	};
 </script>
 <template>
 	<v-list :height="300">
@@ -24,7 +19,7 @@
 			v-if="episodes"
 			v-for="(episode, i) in episodes"
 			:key="i"
-			@click="() => openURL(episode.url)"
+			@click="() => openExternalURL(episode.url)"
 			:prepend-avatar="imgURL(episode.image?.medium)"
 			class="pa-5"
 			elevation="1"

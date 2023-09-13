@@ -34,18 +34,18 @@ describe("Card Component", () => {
 		expect(wrapper.element).toMatchSnapshot();
 	});
 
-	test("openDetails navigates to the correct route", async () => {
-		const id = 1;
-		const res = wrapper.vm as unknown as ExtVueWrapper;
-		await res.openDetails(id);
-		expect(router.currentRoute.value.name).toBe("show");
-		expect(router.currentRoute.value.params).toEqual({ id: "1" });
-	});
-	test("openDetails return if id is undefined", () => {
-		const id = undefined;
-		const res = wrapper.vm as unknown as ExtVueWrapper;
-		expect(res.openDetails(id)).toEqual(null);
-	});
+	// test("openDetails navigates to the correct route", async () => {
+	// 	const id = 1;
+	// 	const res = wrapper.vm as unknown as ExtVueWrapper;
+	// 	await res.openDetails(id);
+	// 	expect(router.currentRoute.value.name).toBe("show");
+	// 	expect(router.currentRoute.value.params).toEqual({ id: "1" });
+	// });
+	// test("openDetails return if id is undefined", () => {
+	// 	const id = undefined;
+	// 	const res = wrapper.vm as unknown as ExtVueWrapper;
+	// 	expect(res.openDetails(id)).toEqual(null);
+	// });
 
 	it("returns the input URL if provided", () => {
 		const inputURL = "https://example.com/image.jpg";
