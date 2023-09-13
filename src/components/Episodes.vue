@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import useFetchShows from "@/composables/FetchData";
 	import Loader from "@/components/Loader.vue";
-	import { defaultImage } from "@/helpers/constants";
+	import { imgURL } from "@/helpers/utility";
 
 	const props = defineProps({
 		id: {
@@ -25,7 +25,7 @@
 			v-for="(episode, i) in episodes"
 			:key="i"
 			@click="() => openURL(episode.url)"
-			:prepend-avatar="episode.image?.medium || defaultImage"
+			:prepend-avatar="imgURL(episode.image?.medium)"
 			class="pa-5"
 			elevation="1"
 		>

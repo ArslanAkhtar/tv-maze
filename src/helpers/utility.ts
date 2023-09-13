@@ -1,3 +1,4 @@
+import { defaultImage } from "./constants";
 import type { Show } from "./types";
 
 export function filterShows(
@@ -17,3 +18,13 @@ export function filterShows(
 	}
 	return temp;
 }
+
+export const imgURL = (url: string | undefined) => url || defaultImage;
+
+export const getYear = (date: string | undefined) =>
+	date ? new Date(date).getFullYear().toString() : undefined;
+
+export const formateTitle = (
+	title: string | undefined,
+	year: string | undefined
+) => `${title} (${year})`;

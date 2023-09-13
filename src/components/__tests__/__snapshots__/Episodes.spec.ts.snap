@@ -1,3 +1,75 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Episodes Component > renders correctly 1`] = `<loader-stub />`;
+exports[`Episodes Component > renders correctly 1`] = `
+<v-list
+  height="300"
+>
+  
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4388.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4389.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4390.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4391.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4392.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4393.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4394.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4395.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4396.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4397.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4398.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4399.jpg"
+  />
+  <v-list-item
+    class="pa-5"
+    elevation="1"
+    prepend-avatar="https://static.tvmaze.com/uploads/images/medium_landscape/1/4400.jpg"
+  />
+  
+</v-list>
+`;

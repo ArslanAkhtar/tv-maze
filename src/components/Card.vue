@@ -1,12 +1,13 @@
 <script setup lang="ts">
 	import { router } from "@/router";
 	import type { Show } from "@/helpers/types";
-	import { defaultImage, loadingImagePlaceholder } from "@/helpers/constants";
-	const props = defineProps<{
+	import { loadingImagePlaceholder } from "@/helpers/constants";
+	import { imgURL, getYear, formateTitle } from "@/helpers/utility";
+
+	defineProps<{
 		item?: Show;
 	}>();
 
-	const year = props.item?.premiered?.split("-")[0] || "";
 	const openDetails = (id: number | undefined) => {
 		if (!id) return null;
 
@@ -22,16 +23,17 @@
 		<v-img
 			@click="() => openDetails(item?.id)"
 			class="align-end text-white"
-			:src="item?.image?.original || defaultImage"
+			:src="imgURL(item?.image?.original)"
 			:lazy-src="loadingImagePlaceholder"
 			cover
 		/>
 		<div class="rating" v-if="item?.rating.average">
-			<v-icon size="small" icon="mdi-star"></v-icon> {{ item?.rating.average }}
+			<v-icon size="small" icon="mdi-star" />
+			{{ item?.rating.average }}
 		</div>
-		<v-card-title class="text-sm card-title"
-			>{{ item?.name }} {{ year ? "( " + year + " )" : "" }}</v-card-title
-		>
+		<v-card-title class="text-sm card-title">{{
+			formateTitle(item?.name, getYear(item?.premiered))
+		}}</v-card-title>
 		<div class="genre mx-3 mb-3">
 			<v-chip
 				v-for="genre in item?.genres"

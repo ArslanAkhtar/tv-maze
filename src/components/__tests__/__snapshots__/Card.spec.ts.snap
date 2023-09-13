@@ -9,19 +9,47 @@ exports[`Card Component > renders correctly 1`] = `
     class="align-end text-white"
     cover=""
     data-v-c6c3362a=""
+    lazy-src="https://via.placeholder.com/300x400?text=Loading..."
+    src="https://static.tvmaze.com/uploads/images/original_untouched/31/78286.jpg"
   />
-  <!--v-if-->
+  <div
+    class="rating"
+    data-v-c6c3362a=""
+  >
+    <v-icon
+      data-v-c6c3362a=""
+      icon="mdi-star"
+      size="small"
+    />
+     6.5
+  </div>
   <v-card-title
     class="text-sm card-title"
     data-v-c6c3362a=""
   >
-     
+    Girls (2012)
   </v-card-title>
   <div
     class="genre mx-3 mb-3"
     data-v-c6c3362a=""
   >
     
+    <v-chip
+      class="ma-1"
+      data-v-c6c3362a=""
+      size="small"
+      text-color="white"
+    >
+      Drama
+    </v-chip>
+    <v-chip
+      class="ma-1"
+      data-v-c6c3362a=""
+      size="small"
+      text-color="white"
+    >
+      Romance
+    </v-chip>
     
   </div>
 </v-card>
