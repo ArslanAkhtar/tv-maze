@@ -6,12 +6,14 @@
 	import Loader from "@/components/Loader.vue";
 	import DOMPurify from "dompurify";
 
-	const { showDetails } = useFetchShows();
+	const { showDetails, loadShowSeasons } = useFetchShows();
 
 	const route = useRoute();
 	const id = parseInt(route.params.id.toString());
 
 	const { data: show, isFinished } = showDetails(id);
+
+	const { data: seasons, error: errorFetchingSeasons } = loadShowSeasons(id);
 
 	const backgroundImageStyle = computed(
 		() =>
@@ -62,7 +64,7 @@
 						<div class="text-h6 font-weight-bold">Status:</div>
 						<div class="text-p font-weight-bold">{{ show?.status }}</div>
 					</div>
-					<Seasons :id="id" />
+					<Seasons :seasons="seasons" v-if="seasons" />
 				</v-col>
 			</v-row>
 		</v-container>

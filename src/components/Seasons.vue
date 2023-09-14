@@ -1,22 +1,18 @@
 <script setup lang="ts">
-	import useFetchShows from "@/composables/FetchData";
 	import Episodes from "@/components/Episodes.vue";
-	import Loader from "@/components/Loader.vue";
+	import type { Season } from "@/helpers/types";
+	import type { PropType } from "vue";
 
-	const props = defineProps({
-		id: {
-			type: Number,
+	defineProps({
+		seasons: {
+			type: Array as PropType<Season[]>,
 			required: true,
 		},
 	});
-
-	const { loadShowSeasons } = useFetchShows();
-
-	const { data: seasons, isFinished } = loadShowSeasons(props.id);
 </script>
 
 <template>
-	<div class="seasons" v-if="isFinished">
+	<div class="seasons" v-if="seasons">
 		<div class="text-h5 mb-5 font-weight-bold">Seasons:</div>
 		<v-expansion-panels>
 			<v-expansion-panel
@@ -32,5 +28,4 @@
 			</v-expansion-panel>
 		</v-expansion-panels>
 	</div>
-	<Loader v-else />
 </template>

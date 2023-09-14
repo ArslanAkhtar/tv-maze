@@ -37,6 +37,7 @@ export interface Season {
 			code: string;
 			timezone: string;
 		};
+		officialSite: string;
 	};
 	webChannel: null;
 	image: {
@@ -44,7 +45,6 @@ export interface Season {
 		original: string;
 	};
 	summary: string | HTMLElement;
-	episodes: Episode[];
 }
 
 export interface Episode {

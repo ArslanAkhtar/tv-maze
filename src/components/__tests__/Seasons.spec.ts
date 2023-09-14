@@ -1,16 +1,15 @@
 import { describe, it, expect } from "vitest";
 import useFetchShows from "@/composables/FetchData";
 import Seasons from "../Seasons.vue";
-import { mount } from "@vue/test-utils";
+import { mount, shallowMount } from "@vue/test-utils";
 import { vuetify } from "@/main";
-import expectedAPIResponse from "./mockData/mockSeason.json";
+import mockSeasons from "./mockData/mockSeason.json";
 import Episodes from "../Episodes.vue";
 import Loader from "../Loader.vue";
 
 describe("Seasons Component", () => {
-	const id = 1;
 	const wrapper = mount(Seasons, {
-		props: { id: id },
+		props: { seasons: mockSeasons },
 		global: {
 			components: {
 				Episodes,
@@ -19,9 +18,12 @@ describe("Seasons Component", () => {
 		},
 		plugins: [vuetify],
 	});
-	it("matches data from api based on id prop", async () => {
-		const { loadShowSeasons } = useFetchShows();
-		const { data } = await loadShowSeasons(wrapper.props().id);
-		expect(data.value[id]).toMatchObject(expectedAPIResponse);
+
+	test("renders correctly", () => {
+		expect(wrapper.element).toMatchSnapshot();
+	});
+
+	it("renders props", () => {
+		expect(wrapper.props().seasons).toMatchObject(mockSeasons);
 	});
 });

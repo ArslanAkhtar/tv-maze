@@ -5,7 +5,9 @@
 	import Filters from "@/components/Filters.vue";
 	import Loader from "@/components/Loader.vue";
 	import LoadMore from "@/components/LoadMore.vue";
+	import NoData from "@/components/NoData.vue";
 	import useInfiniteScroll from "@/composables/InfiniteScroll";
+	import { ErrorMessages } from "@/helpers/enum";
 	const {
 		fetchedShows,
 		shows,
@@ -64,13 +66,10 @@
 				<Card :item="show" />
 			</v-col>
 		</v-row>
-		<v-alert
+		<NoData
 			v-if="shows !== null && shows.length === 0"
-			density="compact"
-			type="warning"
-			icon="mdi-alert"
-			title="No Shows Found."
-		></v-alert>
+			:text="ErrorMessages.NoData"
+		/>
 	</v-container>
 	<LoadMore
 		ref="target"

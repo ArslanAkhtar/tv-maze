@@ -1,0 +1,83 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Seasons Component > renders correctly 1`] = `
+<div
+  class="seasons"
+>
+  <div
+    class="text-h5 mb-5 font-weight-bold"
+  >
+    Seasons:
+  </div>
+  <v-expansion-panels>
+    
+    <v-expansion-panel
+      collapse-icon="mdi-chevron-up"
+      expand-icon="mdi-chevron-down"
+      title="Season 1"
+    >
+      <v-expansion-panel-text>
+        <v-list
+          height="300"
+        >
+          <div
+            class="loading"
+          >
+            <v-progress-circular
+              indeterminate=""
+              model-value="20"
+              size="51"
+              width="7"
+            />
+          </div>
+        </v-list>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+    <v-expansion-panel
+      collapse-icon="mdi-chevron-up"
+      expand-icon="mdi-chevron-down"
+      title="Season 2"
+    >
+      <v-expansion-panel-text>
+        <v-list
+          height="300"
+        >
+          <div
+            class="loading"
+          >
+            <v-progress-circular
+              indeterminate=""
+              model-value="20"
+              size="51"
+              width="7"
+            />
+          </div>
+        </v-list>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+    <v-expansion-panel
+      collapse-icon="mdi-chevron-up"
+      expand-icon="mdi-chevron-down"
+      title="Season 3"
+    >
+      <v-expansion-panel-text>
+        <v-list
+          height="300"
+        >
+          <div
+            class="loading"
+          >
+            <v-progress-circular
+              indeterminate=""
+              model-value="20"
+              size="51"
+              width="7"
+            />
+          </div>
+        </v-list>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+    
+  </v-expansion-panels>
+</div>
+`;
