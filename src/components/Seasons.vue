@@ -13,7 +13,7 @@
 
 <template>
 	<div class="seasons" v-if="seasons">
-		<div class="text-h5 mb-5 font-weight-bold">Seasons:</div>
+		<div class="text-h6 mb-5 font-weight-bold">Seasons:</div>
 		<v-expansion-panels>
 			<v-expansion-panel
 				v-for="season in seasons"

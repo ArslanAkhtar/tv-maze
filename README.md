@@ -1,7 +1,5 @@
 # Hey reviewer! This is the  Live demo
 
-[Click here](https://merry-longma-67e989.netlify.app/)
-
 ## Tech stack - [live demo here](https://merry-longma-67e989.netlify.app/)
 
 ### Why Vue3?
