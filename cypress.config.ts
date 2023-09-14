@@ -7,4 +7,5 @@ export default defineConfig({
 		testIsolation: false,
 	},
 	defaultCommandTimeout: 20000,
+	scrollBehavior: false
 });
