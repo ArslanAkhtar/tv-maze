@@ -5,13 +5,19 @@
 	import { computed } from "vue";
 	import Loader from "@/components/Loader.vue";
 	import DOMPurify from "dompurify";
+	import Error from "@/components/Error.vue";
 
 	const { showDetails, loadShowSeasons } = useFetchShows();
 
 	const route = useRoute();
 	const id = parseInt(route.params.id.toString());
 
-	const { data: show, isFinished } = showDetails(id);
+	const {
+		data: show,
+		isFinished,
+		isFetching,
+		error: showErrorMessage,
+	} = showDetails(id);
 
 	const { data: seasons, error: errorFetchingSeasons } = loadShowSeasons(id);
 
@@ -22,7 +28,7 @@
 </script>
 <template>
 	<div class="wrapper">
-		<v-container v-if="isFinished" class="container">
+		<v-container v-if="isFinished && show" class="container">
 			<v-row>
 				<v-col cols="12" md="4">
 					<v-img :src="show?.image?.medium" aspect-ratio="1"></v-img>
@@ -65,10 +71,27 @@
 						<div class="text-p font-weight-bold">{{ show?.status }}</div>
 					</div>
 					<Seasons :seasons="seasons" v-if="seasons" />
+					<Error
+						v-else-if="errorFetchingSeasons"
+						:text="errorFetchingSeasons"
+					/>
 				</v-col>
 			</v-row>
 		</v-container>
-		<Loader v-else />
+		<div
+			class="d-flex justify-center align-center"
+			style="height: 100vh"
+			v-else-if="isFetching"
+		>
+			<Loader />
+		</div>
+		<div
+			class="d-flex justify-center align-center"
+			style="height: 100vh"
+			v-else-if="!show && isFinished"
+		>
+			<Error :text="showErrorMessage" />
+		</div>
 	</div>
 </template>
 

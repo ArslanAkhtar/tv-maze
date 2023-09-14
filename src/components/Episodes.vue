@@ -2,6 +2,7 @@
 	import useFetchShows from "@/composables/FetchData";
 	import Loader from "@/components/Loader.vue";
 	import { imgURL, openExternalURL } from "@/helpers/utility";
+	import Error from "@/components/Error.vue";
 
 	const props = defineProps({
 		id: {
@@ -11,7 +12,11 @@
 	});
 
 	const { loadShowEpisodes } = useFetchShows();
-	const { data: episodes } = loadShowEpisodes(props.id);
+	const {
+		data: episodes,
+		isFetching,
+		error: ErrorText,
+	} = loadShowEpisodes(props.id);
 </script>
 <template>
 	<v-list :height="300">
@@ -34,6 +39,9 @@
 				<v-icon>mdi-play</v-icon>
 			</template>
 		</v-list-item>
-		<Loader v-else />
+		<Loader v-else-if="isFetching" />
+		<div class="d-flex justify-center align-center" style="height: 100%" v-else>
+			<Error :text="ErrorText" />
+		</div>
 	</v-list>
 </template>
