@@ -2,6 +2,8 @@
 	<v-row justify="center" align="center" class="mt-3">
 		<v-col cols="12" sm="6" md="4" xl="2">
 			<v-text-field
+				outlined
+				color="yellow"
 				density="compact"
 				@update:modelValue="
 					(e) => {
@@ -17,6 +19,7 @@
 		<v-col cols="12" sm="6" md="4" xl="2">
 			<v-select
 				density="compact"
+				color="yellow"
 				:items="genreFilters"
 				label="Genres"
 				clearable
@@ -33,6 +36,7 @@
 		<v-col cols="12" sm="6" md="4" xl="2">
 			<v-select
 				density="compact"
+				color="yellow"
 				clearable
 				clear-icon="mdi-close-circle"
 				:items="rating"
